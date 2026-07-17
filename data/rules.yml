@@ -1,0 +1,212 @@
+version: "3.1"
+
+rules:
+  - rule: greet
+    steps:
+      - intent: greet
+      - action: utter_greet
+
+  - rule: goodbye
+    steps:
+      - intent: goodbye
+      - action: utter_goodbye
+
+  - rule: Say 'I am a bot' anytime the user challenges
+    steps:
+    - intent: bot_challenge
+    - action: utter_iamabot
+
+  - rule: ask employee attribute
+    steps:
+      - intent: ask_employee_attribute
+      - action: action_get_employee_attribute
+
+  - rule: ask employee by name
+    steps:
+      - intent: ask_employee_by_name
+      - action: action_get_employee_by_name
+
+  - rule: ask employee by email
+    steps:
+      - intent: ask_employee_by_email
+      - action: action_get_employee_by_email
+
+  - rule: ask employee by code
+    steps:
+      - intent: ask_employee_by_code
+      - action: action_get_employee_by_code
+
+  - rule: list employees
+    steps:
+      - intent: list_employees
+      - action: action_list_employees
+
+  - rule: ask employee manager
+    steps:
+      - intent: ask_employee_manager
+      - action: action_get_employee_manager
+
+  # my employee rules
+  - rule: Get my employee details
+    steps:
+      - intent: ask_my_employee_details
+      - action: action_get_my_employee_details
+
+  - rule: Get my employee attribute
+    steps:
+      - intent: ask_my_employee_attribute
+      - action: action_get_my_employee_attribute
+
+#**********************************************************************************************
+
+  # claim rules
+  - rule: Get expense claims
+    steps:
+      - intent: ask_expense_claims
+      - action: action_get_expense_claims
+
+  - rule: Get employee expense claims
+    steps:
+      - intent: ask_employee_expense_claims
+      - action: action_get_expense_claims
+
+  - rule: Get expense claim status
+    steps:
+      - intent: ask_expense_claim_status
+      - action: action_get_expense_claims
+
+  - rule: Get payment status
+    steps:
+      - intent: ask_expense_payment_status
+      - action: action_get_expense_claims
+
+  - rule: Get expense claim attribute
+    steps:
+      - intent: ask_expense_claim_attribute
+      - action: action_get_expense_claims
+
+  - rule: Get employee expense claims using email
+    steps:
+      - intent: ask_employee_expense_claims_email
+      - action: action_get_expense_claims
+
+  - rule: Get expense claim attribute using email
+    steps:
+      - intent: ask_expense_claim_attribute_email
+      - action: action_get_expense_claims
+
+  #**********************************************************************************************
+
+  #policy rules
+  # - rule: Get all policies
+  #   steps:
+  #     - intent: ask_all_policies
+  #     - action: action_get_policies
+
+  # - rule: Get policy details
+  #   steps:
+  #     - intent: ask_policy_details
+  #     - action: action_get_policies
+
+  #**********************************************************************************************
+
+  # - rule: Get expense claims
+  #   steps:
+  #     - intent: ask_expense_claims
+  #     - action: action_get_expense_claims_Items
+
+  - rule: Get expense item claims
+    steps:
+      - intent: ask_expense_item_claims
+      - action: action_get_expense_claims_Items
+
+  - rule: Get expense summary
+    steps:
+      - intent: ask_expense_claim_summary
+      - action: action_get_expense_claims_Items
+
+  - rule: Get expense count
+    steps:
+      - intent: ask_expense_claim_count
+      - action: action_get_expense_claims_Items
+
+  - rule: Get expense average
+    steps:
+      - intent: ask_expense_claim_average
+      - action: action_get_expense_claims_Items
+
+  - rule: Get expense comparison
+    steps:
+      - intent: ask_expense_claim_comparison
+      - action: action_get_expense_claims_Items
+
+  - rule: Get top expense analysis
+    steps:
+      - intent: ask_expense_claim_top_analysis
+      - action: action_get_expense_claims_Items
+
+  # ***********************************************************************************************
+  # my expense claim rules
+  - rule: My expense claims
+    steps:
+      - intent: ask_my_expense_claims
+      - action: action_get_my_expense_claims
+
+  - rule: My claim attributes
+    steps:
+      - intent: ask_my_expense_claim_attribute
+      - action: action_get_my_expense_claims
+
+  - rule: My item claims
+    steps:
+      - intent: ask_my_expense_item_claims
+      - action: action_get_my_expense_claims
+
+  - rule: My claim status
+    steps:
+      - intent: ask_my_expense_claim_status
+      - action: action_get_my_expense_claims  
+
+  - rule: My payment status
+    steps:
+      - intent: ask_my_expense_payment_status
+      - action: action_get_my_expense_claims  
+
+  - rule: My claim summary
+    steps:
+      - intent: ask_my_expense_claim_summary    
+      - action: action_get_my_expense_claims
+
+  - rule: My claim count
+    steps:
+      - intent: ask_my_expense_claim_count
+      - action: action_get_my_expense_claims
+
+  - rule: My claim average
+    steps:
+      - intent: ask_my_expense_claim_average  
+      - action: action_get_my_expense_claims
+
+  - rule: My claim comparison
+    steps:
+      - intent: ask_my_expense_claim_comparison
+      - action: action_get_my_expense_claims
+
+  # ***********************************************************************************************
+  # rag policy rules  
+  - rule: rag answer policy question
+    steps:
+      - intent: rag_policy_question
+      - action: action_rag_answer
+
+  - rule: rag rebuild vector database
+    steps:
+      - intent: rag_rebuild
+      - action: action_rag_rebuild
+
+  # ***********************************************************************************************
+  # help rules
+  - rule: Show help
+    steps:
+      - intent: help
+      - action: utter_help
