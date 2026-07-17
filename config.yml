@@ -1,0 +1,33 @@
+recipe: default.v1
+
+language: en
+
+pipeline:
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: char_wb
+  min_ngram: 3
+  max_ngram: 5
+- name: DIETClassifier
+  epochs: 120
+  entity_recognition: true
+- name: EntitySynonymMapper
+- name: ResponseSelector
+  epochs: 80
+- name: FallbackClassifier
+  threshold: 0.35
+  ambiguity_threshold: 0.1
+  # OpenAI should work only when Rasa confidence is low
+# - name: custom_components.openai_intent_fallback.OpenAIIntentFallback
+#   threshold: 0.65
+#   model: gpt-4o-mini
+
+policies:
+- name: RulePolicy
+- name: MemoizationPolicy
+- name: TEDPolicy
+  epochs: 100
+assistant_id: 20260421-121833-product-vocal

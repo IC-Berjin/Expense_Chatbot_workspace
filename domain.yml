@@ -1,0 +1,330 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  # - affirm
+  # - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - help  
+  # employee intents
+  - ask_employee_attribute
+  - ask_employee_by_name
+  - ask_employee_by_email
+  - ask_employee_by_code
+  - list_employees
+  - ask_employee_manager
+  # my employee intents
+  - ask_my_employee_details
+  - ask_my_employee_attribute
+  # claim intents
+  - ask_expense_claim_attribute
+  - ask_expense_claims
+  - ask_employee_expense_claims
+  - ask_expense_claim_status
+  - ask_expense_payment_status
+  - ask_expense_claim_attribute_email
+  - ask_employee_expense_claims_email
+  # policy intents
+  # - ask_all_policies
+  # - ask_policy_details
+  # expense claim items
+  # - ask_expense_claims
+  - ask_expense_item_claims
+  - ask_expense_claim_summary
+  - ask_expense_claim_count
+  - ask_expense_claim_average
+  - ask_expense_claim_comparison
+  - ask_expense_claim_top_analysis
+  # my expense claim intents
+  - ask_my_expense_claims
+  - ask_my_expense_claim_attribute
+  - ask_my_expense_item_claims
+  - ask_my_expense_claim_status
+  - ask_my_expense_payment_status
+  - ask_my_expense_claim_summary
+  - ask_my_expense_claim_count
+  - ask_my_expense_claim_average
+  - ask_my_expense_claim_comparison
+  # rag intents
+  - rag_policy_question
+  - rag_rebuild
+
+entities:
+  # employee entities 
+  - employee_name
+  - employee_email
+  - employee_code
+  - employee_field
+  - department
+  - branch
+  - employment_type
+  - designation
+  # claim entities
+  - expense_status
+  - payment_status
+  - currency
+  - expense_claim_field
+  # policy entities
+  - policy_name
+  - policy_status
+  # expense claim item entities
+  - expense_category
+  - time_period
+  - comparison_period
+  - analysis_metric
+
+slots:
+  employee_name:
+    type: text
+    # influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: employee_name
+
+  employee_email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: employee_email
+
+  employee_code:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: employee_code
+
+  employee_field:
+    type: text
+    # influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: employee_field
+
+  department:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: department
+
+  branch:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: branch
+
+  employment_type:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: employment_type
+
+  designation:
+    type: text
+    mappings: 
+      - type: from_entity
+        entity: designation
+
+  # claim slots
+  expense_status:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: expense_status
+
+  payment_status:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: payment_status
+
+  currency:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: currency
+
+  expense_claim_field:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: expense_claim_field
+
+  # policy slots
+  policy_name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: policy_name
+
+  policy_status:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: policy_status
+
+  # policy follow up slots
+  last_rag_question:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  last_policy_name:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: policy_name
+
+  # expense claim item slots
+  expense_category:
+    type: text
+    # influence_conversation: true
+    mappings:
+      - type: from_entity
+        entity: expense_category
+
+responses:
+  utter_greet:
+    - text: "Hello. Ask me about claims details, employees or policies."
+
+  utter_goodbye:
+    - text: "Goodbye."
+
+  utter_fallback:
+    - text: "I could not understand the question. Please ask about claims details, employees or policies."
+
+  utter_default:
+    - text: "Sorry, I didn’t understand that. Please rephrase your question. please type 'help' to see the list of questions you can ask."
+
+  utter_happy:
+    - text: "Great!"
+
+  utter_bot:
+    - text: "I am a chatbot built using Rasa."
+
+  utter_iamabot:
+  - text: "I am a chatbot, for Infocareer."
+
+  # utter_help:
+  #   - text: |
+  #       Here are some sample questions you can ask:
+
+  #       👤 Employee Information
+  #       • Show details of employee INFO-318
+  #       • Get employee details for John Doe
+  #       • Show my employee details
+
+  #       🏢 Department Information
+  #       • List all employees in IT department
+  #       • Show employees in HR
+
+  #       👨‍💼 Manager Information
+  #       • Who is the manager of INFO-318?
+  #       • Show employees reporting to John Doe
+
+  #       📊 Employee Queries
+  #       • How many active employees are there?
+  #       • Show employees in Chennai branch
+  #       • List employees with designation Software Engineer
+
+  #       💡 You can also ask questions in natural language.
+
+
+  utter_help:
+    - text: |
+        Here are some sample questions you can ask:
+
+        👤 Employee Details
+
+        1. Show my details;
+        2. Get my employee details;
+        3. What is my email?;
+        4. Show my department;
+        5. Show employee details of Raj Kumar;
+        6. Get employee details for Anita Sharma;
+        7. Show employee details for code INFO-004;
+        8. Find employee by email raj.kumar@example.com;
+        9. Who is the manager of Raj Kumar?;
+        10. List all employees;
+        11. Show active employees;
+
+        **************************************************
+
+        💰 Expense Claims
+
+        1. Show my claims;
+        2. Show my expense claims;
+        3. What is my claim amount?;
+        4. Show my approved claims;
+        5. Show my rejected claims;
+        6. Show my paid claims;
+        7. Show my pending claims;
+        8. How many claims do I have?;
+        9. What is my total claim amount?;
+        10. What is my pending claim amount?;
+        11. Show my Fuel claims;
+        12. Show my Taxi claims;
+        13. Compare my claims this month and previous month;
+
+        **************************************************
+
+        📊 Claim Reports
+
+        1. Show expense claims;
+        2. Show approved expense claims;
+        3. Show rejected expense claims;
+        4. Show paid expense claims;
+        5. Show unpaid expense claims;
+        6. Show Flight claims;
+        7. Show Taxi claims;
+        8. What is the total claim amount?;
+        9. How many claims are pending?;
+        10. What is the average claim amount?;
+        11. Which category has the highest claim amount?;
+        12. Top 5 expense categories by amount;
+
+        **************************************************
+
+        📄 Policies
+
+        1. What is the travel reimbursement policy?;
+        2. Who approves travel expenses?;
+        3. How do I submit reimbursement claims?;
+        4. What is the leave policy?;
+        5. What is the work from home policy?;
+        6. What is the expense policy?;
+        7. What documents are required for travel reimbursement?;
+        8. What is the approval process for claims?;
+
+        You can ask these questions in your own words too.
+
+actions:
+  # employee actions
+  - action_get_employee_attribute
+  - action_get_employee_by_name
+  - action_get_employee_by_email
+  - action_get_employee_by_code
+  - action_list_employees
+  - action_get_employee_manager
+  # my employee actions
+  - action_get_my_employee_details
+  - action_get_my_employee_attribute
+  # claim actions
+  - action_get_expense_claims
+  # my claim actions
+  - action_get_my_expense_claims
+  # policy actions
+  # - action_get_policies
+  # expense claim item actions
+  - action_get_expense_claims_Items
+  # rag actions
+  - action_rag_answer
+  - action_rag_rebuild
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
