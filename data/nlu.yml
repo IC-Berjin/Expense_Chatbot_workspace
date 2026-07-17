@@ -1,1 +1,1020 @@
+version: "3.1"
 
+nlu:
+  - intent: greet
+    examples: |
+      - hey
+      - hello
+      - hi
+      - hello there
+      - good morning
+      - good evening
+      - moin
+      - hey there
+      - let's go
+      - hey dude
+      - goodmorning
+      - goodevening
+      - good afternoon
+
+  - intent: goodbye
+    examples: |
+      - cu
+      - good by
+      - cee you later
+      - good night
+      - bye
+      - goodbye
+      - have a nice day
+      - see you around
+      - bye bye
+      - see you later
+      - see you
+      - thanks bye
+
+  # - intent: affirm
+  #   examples: |
+  #     - yes
+  #     - y
+  #     - indeed
+  #     - of course
+  #     - that sounds good
+  #     - correct
+
+  # - intent: deny
+  #   examples: |
+  #     - no
+  #     - n
+  #     - never
+  #     - I don't think so
+  #     - don't like that
+  #     - no way
+  #     - not really
+
+  - intent: mood_great
+    examples: |
+      - perfect
+      - great
+      - amazing
+      - feeling like a king
+      - wonderful
+      - I am feeling very good
+      - I am great
+      - I am amazing
+      - I am going to save the world
+      - super stoked
+      - extremely good
+      - so so perfect
+      - so good
+      - so perfect
+
+  - intent: mood_unhappy
+    examples: |
+      - my day was horrible
+      - I am sad
+      - I don't feel very well
+      - I am disappointed
+      - super sad
+      - I'm so sad
+      - sad
+      - very sad
+      - unhappy
+      - not good
+      - not very good
+      - extremly sad
+      - so saad
+      - so sad
+
+  - intent: bot_challenge
+    examples: |
+      - are you a bot?
+      - are you a human?
+      - am I talking to a bot?
+      - am I talking to a human?
+
+  - intent: ask_employee_attribute
+    examples: |
+      - What is the [email](employee_field) of [Raj Kumar](employee_name)?
+      - What is the [mobile](employee_field) of [Anita Sharma](employee_name)?
+      - What is the [department](employee_field) of [Vikram Singh](employee_name)?
+      - What is the [designation](employee_field) of [Pooja Rao](employee_name)?
+      - What is the [grade](employee_field) of [Amit Joshi](employee_name)?
+      - What is the [status](employee_field) of [Meera Kulkarni](employee_name)?
+      - What is the [employee code](employee_field) of [Rohan Mehta](employee_name)?
+      - What is the [cost center](employee_field) of [Neha Gupta](employee_name)?
+      - What is the [branch](employee_field) of [Suresh Nair](employee_name)?
+      - What is the [legal entity](employee_field) of [Kavita Iyer](employee_name)?
+      - What is the [company code](employee_field) of [Deepak Verma](employee_name)?
+      - What is the [employment type](employee_field) of [Sneha Patil](employee_name)?
+      - What is the [job level](employee_field) of [Arjun Reddy](employee_name)?
+      - Give me [email](employee_field), [mobile](employee_field), and [department](employee_field) of [Raj Kumar](employee_name)
+      - Show [designation](employee_field) and [grade](employee_field) of [Anita Sharma](employee_name)
+      - Tell me [employee code](employee_field) and [status](employee_field) of [Vikram Singh](employee_name)
+      - what is the [project](employee_field) of [Srinivas](employee_name)
+      - show [project](employee_field) for [Deepak Verma](employee_name)
+      - which [project](employee_field) is [Kavita Iyer](employee_name) working on
+      - what is the [work location type](employee_field) of [Pooja](employee_name)
+      - show [work location](employee_field) of [Kavita Iyer](employee_name)
+      - is [cash advance](employee_field) allowed for [Anita](employee_name)
+      - does [Srinivas](employee_name) have [cash advance](employee_field)
+      - what is the [expense policy group](employee_field) of [Srinivas](employee_name)
+      - show [expense policy](employee_field) for [Kavita](employee_name)
+      - what is the [profit center](employee_field) of [Pooja](employee_name)
+      - show [per diem group](employee_field) for [Srinivas](employee_name)
+      - what about [email](employee_field)
+      - and [mobile](employee_field)?
+      - show [department](employee_field) also
+      - what is his [designation](employee_field)
+      - what is her [grade](employee_field)
+      - and [project](employee_field)
+      - also show [expense policy group](employee_field)
+      - what is his [employee_name](employee_field)
+      - what is her [employee_code](employee_field)
+
+  - intent: ask_employee_by_name
+    examples: |
+      - Show employee details of [Raj Kumar](employee_name)
+      - Get employee details for [Anita Sharma](employee_name)
+      - Find employee [Vikram Singh](employee_name)
+      - Search employee [Pooja Rao](employee_name)
+      - Show details for employee [Amit Joshi](employee_name)
+      - Get profile of [Meera Kulkarni](employee_name)
+      - Show profile of [Rohan Mehta](employee_name)
+      - Tell me about [Neha Gupta](employee_name)
+      - Fetch employee data for [Suresh Nair](employee_name)
+      - Give me employee information of [Kavita Iyer](employee_name)
+      - employee details of [Srinivas](employee_name)
+      - Show employee [Alden](employee_name) details
+
+  - intent: ask_employee_by_email
+    examples: |
+      - Show employee details for email [raj.kumar@example.com](employee_email)
+      - Get employee with email [anita.sharma@example.com](employee_email)
+      - Find employee by email [vikram.singh@example.com](employee_email)
+      - Search employee email [pooja.rao@example.com](employee_email)
+      - Employee details for [amit.joshi@example.com](employee_email)
+      - Fetch employee using email [meera.kulkarni@example.com](employee_email)
+
+  - intent: ask_employee_by_code
+    examples: |
+      - Show employee details for code [INFO-004](employee_code)
+      - Get employee with employee code [INFO-256](employee_code)
+      - Find employee by code [INF-104](employee_code)
+      - Search employee code [EMP210](employee_code)
+      - Employee details for [INF-014](employee_code)
+      - Fetch employee using employee code [EMP999](employee_code)
+
+  - intent: list_employees
+    examples: |
+      - Show all employees
+      - List employees
+      - Get employee list
+      - Show employee table data
+      - Fetch all employees
+      - Display employees
+      - Show active employees
+      - List all active employees
+      - Show inactive employees
+      - List employees from [Sales](department)
+      - Show employees in [HR](department)
+      - Get employees from [Finance](department)
+      - List employees from [IT](department)
+      - Show employees in [Bangalore](branch)
+      - List employees from branch [Chennai](branch)
+
+  - intent: ask_employee_manager
+    examples: |
+      - Who is the manager of [Raj Kumar](employee_name)?
+      - Show manager of [Anita Sharma](employee_name)
+      - Get manager details for [Vikram Singh](employee_name)
+      - Who does [Pooja Rao](employee_name) report to?
+      - Reporting manager of [Amit Joshi](employee_name)
+      - Manager for employee code [EMP001](employee_code)
+      - Who is the manager of employee [EMP102](employee_code)?
+
+  - intent: ask_my_employee_details
+    examples: |
+      - show my details
+      - get my details
+      - fetch my details
+      - list my employee details
+      - display my profile
+      - show my profile
+      - get my profile
+      - fetch my profile
+      - can I see my details
+      - can you show my profile
+      - tell me about myself
+      - what are my employee details
+      - give my employee information
+      - retrieve my employee profile
+      - tell about me
+      - show the details of me
+      - employee details
+
+  - intent: ask_my_employee_attribute
+    examples: |
+      - what is my [email](employee_field)
+      - show my [email](employee_field)
+      - get my [email id](employee_field)
+      - fetch my [official email](employee_field)
+      - what is my [mobile](employee_field)
+      - show my [mobile number](employee_field)
+      - get my [phone number](employee_field)
+      - fetch my [contact number](employee_field)
+      - what is my [department](employee_field)
+      - show my [department](employee_field)
+      - which [department](employee_field) am I in
+      - get my [team](employee_field)
+      - what is my [designation](employee_field)
+      - show my [designation](employee_field)
+      - what is my [role](employee_field)
+      - what is my [position](employee_field)
+      - what is my [job title](employee_field)
+      - what is my [grade](employee_field)
+      - show my [grade](employee_field)
+      - get my [grade](employee_field)
+      - what is my [employee code](employee_field)
+      - show my [employee code](employee_field)
+      - get my [employee id](employee_field)
+      - what is my [branch](employee_field)
+      - show my [branch](employee_field)
+      - what is my [office location](employee_field)
+      - what is my [employment type](employee_field)
+      - show my [employment type](employee_field)
+      - what is my [job level](employee_field)
+      - show my [job level](employee_field)
+      - what [level](employee_field) am I
+      - what is my [project](employee_field)
+      - which [project](employee_field) am I working on
+      - show my [project](employee_field)
+      - what is my [work location type](employee_field)
+      - is [cash advance](employee_field) allowed for me
+      - do I have [cash advance](employee_field) allowed
+      - what is my [expense policy group](employee_field)
+      - show my [expense policy](employee_field)
+      - what is my [profit center](employee_field)
+      - show my [profit center](employee_field)
+      - what is my [per diem group](employee_field)
+      - show my [per diem group](employee_field)
+
+  - intent: ask_employee_expense_claims
+    examples: |
+      - show expense claims of [Srinivas](employee_name)
+      - show claims for [Tadepalli](employee_name)
+      - show approved claims of [Raj Kumar](employee_name)
+      - show unpaid claims of [Anita Sharma](employee_name)
+      - claims of [Vikram Singh](employee_name)
+      - expense claims for [Pooja Rao](employee_name)
+      - expense claims of [Amit Joshi](employee_name)
+
+  - intent: ask_expense_claim_attribute
+    examples: |
+      - what is the [payment status](expense_claim_field) of [Srinivas](employee_name)
+      - show [total amount](expense_claim_field) for [Tadepalli](employee_name)
+      - show [reject reason](expense_claim_field) for [Raj Kumar](employee_name)
+      - what about [payment status](expense_claim_field)
+      - and [total amount](expense_claim_field)?
+      - show [reject reason](expense_claim_field) also
+      - what is the [status](expense_claim_field)
+      - and [paid date](expense_claim_field)
+      - show [payment method](expense_claim_field)
+
+  - intent: ask_expense_claim_attribute_email
+    examples: |
+      - what is the [status](expense_claim_field) of claim for [emp1@infocareer.com](employee_email)
+      - show [payment status](expense_claim_field) for [emp1@infocareer.com](employee_email)
+      - what is the [total amount](expense_claim_field) of claim for [emp2@infocareer.com](employee_email)
+      - show [currency](expense_claim_field) for [emp3@infocareer.com](employee_email)
+      - show [title](expense_claim_field) for [emp4@infocareer.com](employee_email)
+      - show [submitted date](expense_claim_field) for [emp5@infocareer.com](employee_email)
+      - show [approved date](expense_claim_field) for [emp1@globex.com](employee_email)
+      - show [rejected date](expense_claim_field) for [emp2@globex.com](employee_email)
+      - show [reject reason](expense_claim_field) for [emp3@globex.com](employee_email)
+      - show [payment method](expense_claim_field) for [emp4@globex.com](employee_email)
+      - show [payment comment](expense_claim_field) for [emp5@globex.com](employee_email)
+      - show [paid date](expense_claim_field) for [emp1@infocareer.com](employee_email)
+      - show [paid by](expense_claim_field) for [emp2@infocareer.com](employee_email)
+      - give me [status](expense_claim_field), [total amount](expense_claim_field), and [payment status](expense_claim_field) for [emp3@infocareer.com](employee_email)
+
+  - intent: ask_expense_claims
+    examples: |
+      - show expense claims
+      - list expense claims
+      - show recent expense claims
+      - show latest expense claims
+      - show all expense claims
+      - display expense claims
+      - fetch expense claims
+
+  - intent: ask_employee_expense_claims_email
+    examples: |
+      - show expense claims of [srinivas@example.com](employee_email)
+      - show claims for [srinivas@example.com](employee_email)
+      - list expense claims submitted by [srinivas@example.com](employee_email)
+      - show latest expense claim of [srinivas@example.com](employee_email)
+      - show approved claims of [srinivas@example.com](employee_email)
+      - show rejected claims of [srinivas@example.com](employee_email)
+      - show unpaid claims of [srinivas@example.com](employee_email)
+
+  - intent: ask_expense_claim_status
+    examples: |
+      - show [approved](expense_status) expense claims
+      - show [rejected](expense_status) expense claims
+      - show [submitted](expense_status) claims
+      - list claims with [approved](expense_status) status
+      - list claims with [rejected](expense_status) status
+      - what about [approved](expense_status)
+      - and [rejected](expense_status)?
+      - show [pending](expense_status) also
+      - now show [submitted](expense_status) claims
+
+  - intent: ask_expense_payment_status
+    examples: |
+      - show [paid](payment_status) expense claims
+      - show [unpaid](payment_status) expense claims
+      - show claims with [paid](payment_status) payment status
+      - show claims with [pending](payment_status) payment status
+      - list [unpaid](payment_status) claims
+
+  - intent: ask_my_expense_claims
+    examples: |
+      - show my claims
+      - show my expense claims
+      - get my claims
+      - list my claims
+      - display my claims
+      - fetch my claims
+      - can I see my claims
+      - show my recent claims
+      - show my latest claims
+      - show all my claims
+      - show my claims history
+      - my claim details
+      - show my claim details
+      - show expense claims
+      - expense claims
+      - give claim details
+      - claims
+      
+  - intent: ask_my_expense_claim_attribute
+    examples: |
+      - what is my payment status
+      - show my total amount
+      - what is my claim amount
+      - show my payment method
+      - show my reject reason
+      - what is my currency
+      - show my paid date
+      - who paid my claim
+      - show my submitted date
+      - show my approved date
+
+  - intent: ask_my_expense_item_claims
+    examples: |
+      - show my Fuel claims
+      - show my Taxi claims
+      - show my Flight claims
+      - show my Train claims
+      - show my Hotel claims
+      - show my Bike claims
+      - show my Car claims
+      - show my Lunch claims
+      - show my Dinner claims
+      - show my Breakfast claims
+      - show my Metro claims
+      - show my rapido claims
+
+  - intent: ask_my_expense_claim_status
+    examples: |
+      - show my approved claims
+      - show my rejected claims
+      - show my submitted claims
+      - show my pending claims
+
+  - intent: ask_my_expense_payment_status
+    examples: |
+      - show my paid claims
+      - show my unpaid claims
+      - show my payment pending claims
+
+  - intent: ask_my_expense_claim_summary
+    examples: |
+      - what is my total claim amount
+      - what is my pending claim amount
+      - what is my approved amount
+      - what is my rejected amount
+      - what is my unpaid amount
+      - what is my Fuel claim amount
+      - what is my Taxi expense
+
+  - intent: ask_my_expense_claim_count
+    examples: |
+      - how many claims do I have
+      - how many pending claims do I have
+      - how many approved claims do I have
+      - how many Fuel claims do I have
+      - count my claims
+
+  - intent: ask_my_expense_claim_average
+    examples: |
+      - what is my average claim amount
+      - what is my average Fuel expense
+      - what is my average Taxi amount
+
+  - intent: ask_my_expense_claim_comparison
+    examples: |
+      - compare my claims this month and previous month
+      - compare my claims this week and last week
+      - compare my Fuel claims this month and previous month
+
+  - intent: ask_expense_item_claims
+    examples: |
+      - show [train](expense_category) claims
+      - show pending [train](expense_category) claims
+      - show claims by [Flight](expense_category)
+      - show claim requests by [Metro](expense_category)
+      - show claims for [Fuel](expense_category)
+      - show rejected claims for [Car](expense_category)
+      - show approved claims for [Bike](expense_category)
+      - show unpaid claims for [Hotel](expense_category)
+      - show pending claims where people travelled by [Bus](expense_category)
+      - show claim request by [train travel](expense_category)
+      - show claims for [Air Travel Economy Air Fare](expense_category)
+      - show claims for [II AC](expense_category)
+      - show claims for [II AC OTHER STAFFS](expense_category)
+      - show claims for [Breakfast](expense_category)
+      - show claims for [Lunch](expense_category)
+      - show claims for [Dinner](expense_category)
+      - show claims for [Tea](expense_category)
+      - show claims for [Coffee](expense_category)
+      - show claims for [Refreshments](expense_category)
+      - show [Taxi](expense_category) claims of [Srinivas](employee_name)
+      - show pending [Flight](expense_category) claims of [Chandra A](employee_name)
+      - what about [Taxi](expense_category)
+      - and [Fuel](expense_category)?
+      - show [Hotel](expense_category) also
+      - now show [Flight](expense_category) claims
+      - what about [Lunch](expense_category) claims
+
+  - intent: ask_expense_claim_summary
+    examples: |
+      - what is the total claim amount
+      - what is the total pending claim amount
+      - what is the total approved claim amount
+      - what is the total rejected claim amount
+      - what is the total paid amount
+      - what is the total unpaid amount
+      - what is the total claim amount this month
+      - what is the total amount for [Fuel](expense_category)
+      - what is the total amount for [Train](expense_category)
+      - total claim amount of [Srinivas](employee_name)
+      - show category wise claim amount
+      - show employee wise claim amount
+      - show payment method wise amount
+      - what is the total claim amount of [Srinivas](employee_name)
+      - what is the total [Fuel](expense_category) amount of [Srinivas](employee_name)
+      - total pending [Taxi](expense_category) amount of [Chandra A](employee_name)
+      - total claim amount of [Vadivel Murugan](employee_name) this month
+
+  - intent: ask_expense_claim_count
+    examples: |
+      - how many claims are pending
+      - how many claims are approved
+      - how many claims are rejected
+      - how many claims this month
+      - how many [Taxi](expense_category) claims are pending
+      - how many employees submitted claims
+      - how many people claimed [Fuel](expense_category)
+      - count claims by category
+      - count claims by employee
+      - show category wise claim count
+      - how many claims does [Srinivas](employee_name) have
+      - how many pending claims of [Srinivas](employee_name)
+      - how many [Fuel](expense_category) claims of [Chandra A](employee_name)
+      - count [Taxi](expense_category) claims of [Vadivel Murugan](employee_name)
+
+  - intent: ask_expense_claim_average
+    examples: |
+      - what is the average claim amount
+      - average pending claim amount
+      - average approved claim amount
+      - average [Train](expense_category) claim amount
+      - average [Food](expense_category) claim amount
+      - average claim amount this month
+      - show average amount by category
+      - show average amount by employee
+      - average claim amount of [Srinivas](employee_name)
+      - average [Fuel](expense_category) amount of [Srinivas](employee_name)
+      - average pending [Taxi](expense_category) amount of [Chandra A](employee_name)
+
+  - intent: ask_expense_claim_comparison
+    examples: |
+      - compare this month and previous month claims
+      - compare this week and last week claims
+      - compare pending claims this month vs previous month
+      - compare approved amount this month vs last month
+      - compare [Fuel](expense_category) claims this month and previous month
+      - compare [Train](expense_category) claims this week and last week
+      - compare [Srinivas](employee_name) claims this month and previous month
+      - compare [Fuel](expense_category) claims of [Srinivas](employee_name) this month and previous month
+      - compare pending [Train](expense_category) claims of [Chandra A](employee_name) this week and last week
+
+  - intent: ask_expense_claim_top_analysis
+    examples: |
+      - which category has the highest claim amount
+      - which category has the most claims
+      - top 5 expense categories by amount
+      - top 5 expense categories by count
+      - top 5 employees by claim amount
+      - top 5 employees by number of claims
+      - who submitted the highest claim amount
+      - which employee has the most pending claims
+      - top categories used by [Srinivas](employee_name)
+      - top 5 categories by amount for [Srinivas](employee_name)
+      - which category has highest claim amount for [Chandra A](employee_name)
+
+  # - intent: ask_all_policies
+  #   examples: |
+  #     - show all policies
+  #     - list policies
+  #     - show active policies
+  #     - show inactive policies
+  #     - get policy list
+  #     - show expense policies
+
+  # - intent: ask_policy_details
+  #   examples: |
+  #     - explain [Petrol Policy](policy_name)
+  #     - explain [Food Policy](policy_name)
+  #     - show details of [Car Restriction Policy](policy_name)
+  #     - what is [Petrol Policy](policy_name)
+  #     - tell me about [QCI Food Policy Other staffs](policy_name)
+  #     - what are the rules in [Public Transport](policy_name)
+  #     - explain policy [Block Taxi for Non-Manager & Non-Approver](policy_name)
+  #     - [Petrol Policy](policy_name)
+  #     - [Car Restriction Policy](policy_name)
+  #     - [Food Policy](policy_name)
+
+  - synonym: email
+    examples: |
+      - mail
+      - email id
+      - official email
+      - employee email
+      - emailId
+      - emailid
+      - mailid
+      - mailId
+
+  - synonym: mobile
+    examples: |
+      - phone
+      - phone number
+      - mobile number
+      - contact number
+
+  - synonym: employee_code
+    examples: |
+      - employee code
+      - emp code
+      - employee id
+      - emp id
+
+  - synonym: designation
+    examples: |
+      - role
+      - position
+      - job title
+      - title
+
+  - synonym: department
+    examples: |
+      - dept
+      - team
+      - function
+
+  - synonym: branch
+    examples: |
+      - location
+      - office
+      - office location
+
+  - synonym: employment_type
+    examples: |
+      - employment type
+      - employee type
+      - work type
+
+  - synonym: job_level
+    examples: |
+      - job level
+      - level
+      - employee level
+
+  - synonym: cost_center
+    examples: |
+      - cost center
+      - cost centre
+
+  - synonym: legal_entity
+    examples: |
+      - legal entity
+      - company entity
+
+  - synonym: company_code
+    examples: |
+      - company code
+      - organization code
+
+  - synonym: status
+    examples: |
+      - employee status
+      - active status
+      - user status
+
+  - synonym: project
+    examples: |
+      - assignment
+      - project name
+
+  - synonym: work location type
+    examples: |
+      - work location type
+      - location type
+      - working mode
+
+  - synonym: cash advance
+    examples: |
+      - advance
+      - advance allowed
+
+  - synonym: expense policy group
+    examples: |
+      - expense policy
+      - policy group
+
+  - synonym: profit center
+    examples: |
+      - cost profit center
+
+  - synonym: per diem group
+    examples: |
+      - per diem
+
+  - lookup: employee_email
+    examples: |
+      - appr1@globex.com
+      - appr2@globex.com
+      - emp2@globex.com
+      - emp3@globex.com
+      - emp4@globex.com
+      - emp5@globex.com
+      - finance@infocareer.com
+      - hr@infocareer.com
+      - emp1@globex.com
+      - emp5@infocareer.com
+      - appr1@infocareer.com
+      - appr2@infocareer.com
+      - emp2@infocareer.com
+      - emp3@infocareer.com
+      - emp1@infocareer.com
+      - emp4@infocareer.com
+      - it_head@infocareer.com
+      - manager@infocareer.com
+
+  - lookup: employee_name
+    examples: |
+      - Raj Kumar
+      - Anita Sharma
+      - Vikram Singh
+      - Pooja Rao
+      - Amit Joshi
+      - Meera Kulkarni
+      - Rohan Mehta
+      - Neha Gupta
+      - Suresh Nair
+      - Kavita Iyer
+      - Deepak Verma
+      - Sneha Patil
+      - Arjun Reddy
+      - Srinivas Tadepalli
+      - Chandra A
+      - Vadivel Murugan
+      - Swaminathan 
+      - Niveditha
+      - Siju P Nair
+      - Kesavakannan 
+      - Krishna RV
+      - Sundar 
+      - Akib Javith
+      - Arumugadass
+      - Priya Narayanaswamy
+      - Atul Udupi
+      - Sriram Pichappa
+      - Praveen AV
+      - Victor Jacob 
+      - Leelavathy 
+      - Tharaneeswarrao 
+      - Thamizh Selvan
+      - Jayesh Gopalan
+      - Gunaseeli 
+      - Sekar 
+      - Alden Breev
+      - Yadavalli Srinivasa Bharadwaj
+      - Suriyanarayanan
+      - Sankar Ganapathy
+      - Samuel 
+      - Jayalakshmi 
+      - Devendiran 
+      - Innamul Hasan
+      - Suganya 
+      - Anusiya Devi 
+      - Shabash 
+      - Ananda Lakshmi 
+      - Naveen 
+      - Lakkaiya Ramkumar 
+      - Hariharan 
+      - Gokulnath 
+      - Poojayamini 
+      - Mani Bharathi 
+      - Rajalakshmi 
+      - Uma Shankar 
+      - Viknesh
+      - Swaathi
+      - Vinayaki 
+      - Vignesh Saran 
+      - Karthikeyan 
+      - Vigneshwaran 
+      - Naveen Kumar
+      - Sanjay 
+      - Sriharini 
+      - Samleo
+      - Sakthi Priya 
+      - Jeslin Angel
+      - Vignesh 
+      - Prasanna Venkatesh
+      - Sathishkumar Ravi
+      - Immanual 
+      - Jasmine Prema Savarimuthu
+      - Nixon 
+      - Sanjay Kumar 
+      - Neyashree 
+      - Rexon 
+      - Jeevanathan 
+      - Berjin Duthe 
+      - Nandhini Mohanasundaram
+      - Vigneshwaran 
+      - Keerthana 
+      - Vinoth 
+      - Thirupugal 
+      - Harish Kumar 
+      - Gunasekar 
+      - Burra Nandhini
+      - Deepakkumar 
+      - Vaishali Chandramouli
+      - Gopinath 
+      - Mugilan Parthiban
+      - Lavanya 
+      - Faruk Basha 
+      - Ananth KN
+      - Lakshmi Sekhar 
+      - Usha Chandrasekaran
+      - Winston Britto
+      - Naveen Kumar 
+      - Yoga Prakash 
+      - Shrinidhi 
+      - Sajith 
+      - Niveditha 
+      - Vincent 
+      - Chandrasekaran 
+      - Muthu Ganeshan Moorthy
+      - Yarab Basha 
+      - Suresh 
+      - Shajahan
+      - Madhavan 
+      - Gayathri 
+      - Dinesh 
+      - Marutha Muthu 
+      - Yuvaraj 
+      - Kaviya 
+      - Swetha 
+      - Susan 
+      - Harshal 
+      - Vignesh 
+      - Rajesh 
+      - Rajeshkumar 
+      - Logitha 
+      - Sugumar 
+      - Pranava Kumar 
+      - Raj Dwahraknath 
+      - Jones Mathew 
+
+  - lookup: employee_code
+    examples: |
+      - INFO-001
+      - INFO-002
+      - INFO-003
+      - INFO-004
+      - INF-001
+      - INFC-024
+      - INFC-225
+      - EMP005
+      - EMP006
+      - EMP007
+
+  - lookup: employee_field
+    examples: |
+      - email
+      - mobile
+      - department
+      - designation
+      - grade
+      - status
+      - employee code
+      - cost center
+      - branch
+      - legal entity
+      - company code
+      - employment type
+      - job level
+      - project
+      - work location type
+      - cash advance
+      - expense policy group
+      - profit center
+      - per diem group
+
+  - lookup: expense_claim_field
+    examples: |
+      - title
+      - currency
+      - total amount
+      - amount
+      - status
+      - submitted date
+      - submitted at
+      - approved date
+      - rejected date
+      - reject reason
+      - payment status
+      - payment method
+      - payment comment
+      - paid date
+      - paid at
+      - paid by
+
+  - lookup: expense_category
+    examples: |
+      - Metro City
+      - Metro
+      - Car
+      - Bike
+      - Taxi
+      - Bus
+      - Flight
+      - Fuel
+      - Hotel
+      - Other
+      - Lunch
+      - Dinner
+      - Breakfast
+      - Tea
+      - Coffee
+      - Refreshments
+      - rapido
+      - ola
+      - II AC
+      - II AC OTHER STAFFS
+      - Air Travel Economy Air Fare
+      - train
+      - train travel
+
+  - lookup: expense_status
+    examples: |
+      - pending
+      - submitted
+      - approved
+      - rejected
+
+  - lookup: payment_status
+    examples: |
+      - paid
+      - unpaid
+      - pending
+
+  - lookup: policy_name
+    examples: |
+      - Petrol Policy
+      - Car Restriction Policy
+      - Food Policy
+      - Max Accommodation Others
+      - Max Accommodation Others Metro
+      - QCI Accomadation Manager and Above Metro city
+      - QCI Food Policy Manager and above
+      - Accommodation staff Block
+      - Travel involving more than 12 Hours by train
+      - QCI Accomadation Manager and Above Other city
+      - Max Accommodation Manager and Above Others
+      - Outstation Train Travel Form Overnight
+      - QCI Accomadation Other staffs Metro city
+      - Max Accommodation MANAGER BLOCK
+      - QCI Outstation
+      - Public Transport
+      - QCI Accomadation Other staffs Other city
+      - Block Taxi for NonManager NonApprover
+      - QCI Food Policy Other staffs
+      - Max Accommodation Manager and Above Metro
+      - Train Policy
+
+  - intent: rag_policy_question
+    examples: |
+      - What is the travel reimbursement policy?
+      - Who approves travel expenses?
+      - How do I submit reimbursement claims?
+      - Can I claim taxi fare?
+      - What is the food reimbursement limit?
+      - Can employees use their own bike?
+      - How much can I claim for two-wheeler travel?
+      - What is the accommodation limit for managers?
+      - Explain the local travel policy
+      - Explain the travel reimbursement process
+      - What happens if I submit claims after seven days?
+      - Are bills required for reimbursement?
+      - Can interns claim local travel reimbursement?
+      - Can contract employees claim expenses?
+      - Who approves local travel expenses?
+      - What is the policy for official travel?
+      - Can I get travel advance?
+      - How do I request travel advance?
+      - What documents are needed for reimbursement?
+      - Can I stay with relatives during official travel?
+      - explain [Petrol Policy](policy_name)
+      - explain [Food Policy](policy_name)
+      - show details of [Car Restriction Policy](policy_name)
+      - what is [Petrol Policy](policy_name)
+      - tell me about [QCI Food Policy Other staffs](policy_name)
+      - what are the rules in [Public Transport](policy_name)
+      - explain policy [Block Taxi for Non-Manager & Non-Approver](policy_name)
+      - [Petrol Policy](policy_name)
+      - [Car Restriction Policy](policy_name)
+      - [Food Policy](policy_name)
+      - Can I claim food expenses without bills?
+      - Explain the local travel reimbursement policy.
+      - Who is eligible for local travel reimbursement?
+      - Can contract employees claim local travel expenses?
+      - What happens if reimbursement is submitted late?
+      - Within how many days should claims be submitted?
+      - Explain the official travel policy.
+      - Who approves official travel?
+      - Can employees request travel advance?
+      - Can employees travel by flight?
+      - What class of train travel is allowed for managers?
+      - Can employees stay with relatives during official travel?
+      - I travelled using my own bike for office work. Can I claim reimbursement?
+      - I submitted my claim after 10 days. Will it be accepted?
+      - I lost my food bill. Can I still claim reimbursement?
+      - What benefits are available for managers during official travel?
+      - What are the important reimbursement rules employees should know?
+      - Summarize the travel reimbursement policy.
+      - Give me a short overview of local travel reimbursement.
+      - Explain the reimbursement process in simple terms.
+      - What are the key rules in the travel policy?
+      - what about approval?
+      - who approves it?
+      - what is the limit?
+      - what about bills?
+      - are bills required?
+      - can I claim it?
+      - is it allowed?
+      - explain more
+      - tell me more
+      - give more details
+      - what are the rules?
+      - what documents are required?
+      - within how many days?
+      - what happens if it is late?
+      - what about managers?
+      - what about interns?
+      - what about contract employees?
+      - how about food claims?
+      - how about taxi fare?
+      - and travel advance?
+      - and accommodation?
+      - give some claim policy details
+
+  - intent: rag_rebuild
+    examples: |
+      - rebuild rag
+      - rebuild vector database
+      - update policy documents
+      - refresh rag documents
+      - reload documents
+      - recreate vector db
+
+  - intent: help
+    examples: |
+      - help
+      - sample questions
+      - help me
+      - help me with sample questions
